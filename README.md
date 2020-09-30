@@ -17,9 +17,17 @@ The same source code is referenced by all three *.jucer* projects, which differ 
 - *Multi-Mout.jucer* sets *NUM_OUT_BUSES=16* and AU subtype *Mout*.
 - *Multi-Sout.jucer* sets *NUM_OUT_BUSES=16* and AU subtype *Sout*.
 
+## Compiled binaries
+
+The *Binaries* folder includes two compiled versions of the *Single-Sout* and *Multi-Sout* plug-ins.
+ - *Debug-Version.zip* contains Debug builds, compiled with Xcode set for Development Signing
+ - *Release-Notarized.zip* contains Release builds, fully signed and notarized.
+ 
+I wanted to see if code-signing and/or notarization would make a difference; it did not.
+
 ## Reproducing the issue
 
-If you build the first two Audio Unit plug-ins, and install them on a "virgin" MacOS system, *Logic Pro X* will correctly identify that the *Single-Sout* plug-in supports only stereo output, and the *Multi-Mout* plug-in supports "stereo" and "16x stereo". (Logic does not present all possible options.)
+If you build the first two Audio Unit plug-ins (or use the prebuilt binaries), and install them on a "virgin" MacOS system, *Logic Pro X* will correctly identify that the *Single-Sout* plug-in supports only stereo output, and the *Multi-Mout* plug-in supports "stereo" and "16x stereo". (Logic does not present all possible options.)
 
 However, if you then build and install the *Multi-Sout* plug-in, and remove *Single-Sout* (so there is still only one plug-in with AU subtype "Sout") Logic Pro remembers that the AU subtype code "Sout" is associated with one stereo output bus only, and I have not been able to find any way to reset whatever caching mechanism it uses, so it can recognize that the plug-in is now capable of supporting up to 16 stereo output buses. Things I have tried include:
  - Log out / log in
@@ -30,3 +38,7 @@ However, if you then build and install the *Multi-Sout* plug-in, and remove *Sin
  - Delete *~/Library/Caches/com.apple.musicapps*
 
 The above measures appear to WORK with MacOS 10.13.6 and Logic Pro X 10.4.8, but FAIL under MacOS 10.15.6 and Logic Pro X 10.5.1.
+ 
+## UPDATE: The culprit appears to be Logic Pro 10.5.x
+
+Following a suggestion from Apple, I tested the same steps using Logic Pro 10.4.8 on MacOS 10.15.6 Catalina, and **this works as expected**. It is even possible to get Logic 10.4.8 to show the new I/O options by simply selecting the *Single-Sout* plug-in in the Plug-In Manager and choosing "Reset and Rescan Selection"; it's not even necessary to delete any caches. (If you do this, Logic will continue to use the old plug-in name "Single-Sout", but it will correctly load the the "Multi-Sout" plug-in.)
