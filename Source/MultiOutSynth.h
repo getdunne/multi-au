@@ -6,7 +6,7 @@ class MultiOutSynth  : public AudioProcessor
 public:
     enum
     {
-        numInputBuses = 1,
+        numInputBuses = NUM_IN_BUSES,
         numOutputBuses = NUM_OUT_BUSES,
         numSynths = 7,
         numVoices = 4

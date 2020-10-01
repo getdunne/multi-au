@@ -22,6 +22,7 @@ The same source code is referenced by all three *.jucer* projects, which differ 
 The *Binaries* folder includes two compiled versions of the *Single-Sout* and *Multi-Sout* plug-ins.
  - *Debug-Version.zip* contains Debug builds, compiled with Xcode set for Development Signing
  - *Release-Notarized.zip* contains Release builds, fully signed and notarized.
+ - *Release-Notarized-2in8out.zip* contains a version of *Multi-Sout* built for 2 stereo input buses and 8 stereo output buses.
  
 I wanted to see if code-signing and/or notarization would make a difference; it did not.
 

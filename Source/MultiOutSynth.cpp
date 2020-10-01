@@ -26,7 +26,9 @@ AudioProcessor::BusesProperties MultiOutSynth::buildBusesProperties()
     BusesProperties busesProperties;
 
     busesProperties.addBus(true, "Main Input", AudioChannelSet::stereo(), false);
-    
+    for (int i = 1; i < numInputBuses; i++)
+        busesProperties.addBus(true, "Aux Input " + String(i), AudioChannelSet::stereo(), false);
+
     busesProperties.addBus(false, "Main Output", AudioChannelSet::stereo(), true);
     for (int i = 1; i < numOutputBuses; i++)
         busesProperties.addBus(false, "Aux " + String(i), AudioChannelSet::stereo(), false);
