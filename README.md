@@ -1,11 +1,11 @@
 # multi-AU
-**tl;dr: The answer is "change the version number".** See bottom of page.
-
 I have a commercial plug-in product, for which I would like to offer a paid upgrade from the present stereo-only version (single stereo output bus) to a multi-output version, **without changing the AU subtype code** (so DAW projects saved with the earlier version will continue to load with the upgraded version).
 
 For the Audio-Unit plug-in, this seems to be impossible under MacOS 10.15.6 "Catalina", due to some unexplained persistence of the Audio Unit cache.
 
 This repo contains the simplest code example I could prepare, to reproduce this issue.
+
+**tl;dr: The answer is "change the version number".** See bottom of page.
 
 ## The example code
 
