@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT name="Single-Sout" companyName="JUCE" version="1.1.0" userNotes="Multi-out synthesiser audio plugin."
+<JUCERPROJECT name="Single-Sout" companyName="JUCE" version="1.2.0" userNotes="Multi-out synthesiser audio plugin."
               companyWebsite="http://juce.com" projectType="audioplug" pluginManufacturer="JUCE"
               pluginAUIsSandboxSafe="1" pluginFormats="buildAU" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn,pluginIsSynth"
-              id="EeQvyk" pluginCode="Sout" jucerFormatVersion="1" defines="NUM_IN_BUSES=1&#10;NUM_OUT_BUSES=1">
+              id="EeQvyk" pluginCode="Sout" jucerFormatVersion="1" defines="NUM_IN_BUSES=1&#10;NUM_OUT_BUSES=16">
   <MAINGROUP id="lP1cvg" name="Single-Sout">
     <GROUP id="{63E16FC5-0314-5D7F-50A6-3294F728E523}" name="Source">
       <FILE id="YBqudH" name="MultiOutSynth.cpp" compile="1" resource="0"
